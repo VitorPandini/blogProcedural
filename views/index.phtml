@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog</title>
+</head>
+<body>
+    <h1>Blog </h1>
+    
+    <form action="/postagem" method="post">
+
+    <input type="text" name="titulo" placeholder='titulo'>
+
+    <input type="text" name="mensagem"placeholder='mensagem'>
+
+    <input type="text" name="autor"placeholder='autor'>
+    
+    <button type="submit">Enviar </button>
+    </form>
+    
+    <?php if (empty($postagens)) :?>
+
+        <h1>sem post </h1>
+    <?php else: ?>
+
+        <?php foreach($postagens as $post): ?>
+            
+            <h3><?= $post["titulo"] ?></h3>
+
+            <h2><?= $post["mensagem"] ?></h2>
+            
+            <strong><?= $post["autor"] ?></strong>
+
+    <?php endforeach; ?>        
+         
+
+    <?php endif;  ?>
+
+
+</body>
+</html>
